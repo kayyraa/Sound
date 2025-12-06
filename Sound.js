@@ -6,9 +6,7 @@ globalThis.Sound = class {
         this.Audio = new Audio(this.Source);
         this.Audio.volume = this.Volume;
         this.Audio.playbackRate = this.Pitch;
-        this.Audio.addEventListener("loadeddata", () => {
-            this.Audio.playbackRate = this.Pitch;
-        });
+        this.Audio.addEventListener("loadeddata", () => this.Audio.playbackRate = this.Pitch);
     }
 
     Play() {
