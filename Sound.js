@@ -5,6 +5,10 @@ globalThis.Sound = class {
         this.Pitch = 1;
         this.Audio = new Audio(this.Source);
         this.Audio.volume = this.Volume;
+        this.Audio.playbackRate = this.Pitch;
+        this.Audio.addEventListener("loadeddata", () => {
+            this.Audio.playbackRate = this.Pitch;
+        });
     }
 
     Play() {
@@ -13,6 +17,10 @@ globalThis.Sound = class {
         this.Audio.playbackRate = this.Pitch;
         this.Audio.volume = this.Volume;
         this.Audio.play();
+    }
+
+    Pause() {
+        this.Audio.pause();
     }
 
     Stop() {
